@@ -1,0 +1,171 @@
+<app-header></app-header>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form>
+                        <h6>Datos personales</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput name="nombre" [(ngModel)]="empleado.nombre">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input type="email" matInput name="email" [(ngModel)]="empleado.email">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Apellido</mat-label>
+                                    <input matInput name="apellido" [(ngModel)]="empleado.apellido">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Telefono</mat-label>
+                                    <input type="tel" matInput name="tel" [(ngModel)]="empleado.telefono">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Documento</mat-label>
+                                    <input type="number" matInput name="dni" [(ngModel)]="empleado.documento">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <h6>Domicilio</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Calle</mat-label>
+                                    <input matInput name="calle" [(ngModel)]="direccionEmpleado.calle">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Numero</mat-label>
+                                    <input type="number" matInput name="nro" [(ngModel)]="direccionEmpleado.numero">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Pais</mat-label>
+                                    <input matInput name="pais" [(ngModel)]="direccionEmpleado.pais">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Provincia</mat-label>
+                                    <input matInput name="provincia" [(ngModel)]="direccionEmpleado.region">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ciudad</mat-label>
+                                    <input matInput name="ciudad" [(ngModel)]="direccionEmpleado.ciudad">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <h6>Datos de usuario</h6>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre de Usuario</mat-label>
+                                    <input matInput name="user" [(ngModel)]="user.usuario">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Contraseña</mat-label>
+                                    <input matInput name="psw" [(ngModel)]="user.password">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-4">
+                                <section class="example-section">
+                                    <mat-checkbox class="example-margin" color="primary" [checked]="user.root"
+                                        (change)="user.root = !user.root">¿Es
+                                        administrador?</mat-checkbox>
+                                </section>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm btn-sig" data-bs-dismiss="modal"
+                    (click)="guardarEmpleado()" role="button">Añadir empleado</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Datatable employee -->
+<div class="container-fluid" id="Form-container" id="mainCointainer">
+    <div class="container-fluid overflow-hidden">
+      <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="p-2 bd-highlight" id="Logo-container">
+                <img class="logoF" src="assets/img/rincjujuy.png">
+              </div>
+              <br>
+            <mat-card>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-secondary btn-sm btn-sig" role="button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <mat-icon>create_new_folder</mat-icon>
+                    Nuevo empleado
+                </button>
+
+                <div class="mat-elevation-z8 mat-table-responsive">
+                    <table mat-table matTableResponsive [dataSource]="dataSource">
+
+                        <ng-container matColumnDef="NomApe">
+                            <th mat-header-cell *matHeaderCellDef> Nombre y Apellido </th>
+                            <td mat-cell *matCellDef="let element"> {{element.datos.apellido}},
+                                {{element.datos.nombre}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Usuario">
+                            <th mat-header-cell *matHeaderCellDef> Nombre de usuario </th>
+                            <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="Contraseña">
+                            <th mat-header-cell *matHeaderCellDef> Contraseña </th>
+                            <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Admin">
+                            <th mat-header-cell *matHeaderCellDef> Tipo </th>
+                            <td mat-cell *matCellDef="let element"> {{element.root ? 'Administrador' : 'Empleado'}} </td>
+                        </ng-container>
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons
+                        aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                </div>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

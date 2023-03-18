@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    --bs-body-bg: white; 
+    --bs-modal-bg:rgba(21, 21, 21, 0);
+    height: 100vh;
+}
+:root{
+    --bs-body-color: rgb(21, 21, 21);
+
+}
+.modal-content{
+    background-color:#fff0 ;  
+ }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

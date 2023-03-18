@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.bod {
+    margin: 0;
+    padding: 0;
+
+}
+
+.izquierda {
+    width: 50%;
+    height: 100vh;
+    background-color: #f5f5f5;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.derecha {
+    width: 50%;
+    height: 100vh;
+    background-color: #091c49;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #f5f5f5;
+    height: 100%;
+    /* #739dff 
+} */
+
+.login {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+    border-color: #091c49;
+
+    border-style: inset;
+    box-shadow: 16px 14px 20px #091c49;
+}
+
+/* .bienvenida{
+    width:50%; 
+    height:100%;
+    background-color: #091c49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:inline-block;
+} */
+
+h2{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+} 
+
+.logoF {
+    width: 100%;
+    max-width: 460px;
+    min-width: 200px;
+    height: auto;
+    padding-right: 20px;
+  }
+
+#Logo-container {
+    width: 90%;
+    max-width: 460px;
+    min-width: 200px;
+    height: auto;
+    margin: 10px auto;
+    padding-top: 30px;
+    padding-bottom: 30px
+  }
+
+.ancho {
+    width: 80%;
+}
+
+.mat-raised-button {
+    width: 80%;
+    color: #ffffff;
+    background-color: #091c49;
+}
+@media only screen and (max-width: 600px) {
+    .derecha{
+        display: none;
+    }
+    .izquierda{
+    width: 100vw;
+    padding: 10vw;
+    }
+}

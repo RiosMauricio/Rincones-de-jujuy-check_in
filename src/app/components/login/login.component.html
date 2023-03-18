@@ -1,0 +1,30 @@
+<div class="bod" >
+  <div class="izquierda">
+    <div class="login">
+      <img src="https://cdn-icons-png.flaticon.com/512/6522/6522516.png" width="50%" height="80%">
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input [(ngModel)]="user" matInput required >
+      </mat-form-field>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label >Contraseña</mat-label>
+        <input [type]="hide ? 'password' : 'text'" [(ngModel)]="passw" matInput required>
+        <button mat-icon-button matSuffix (click)="hide = !hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        
+        <br>
+      </mat-form-field>
+      <mat-error *ngIf="passwordInvalid">El usuario o la contraseña son incorrectos*</mat-error>
+      <br>
+      <button mat-raised-button (click)="iniciar()">Iniciar sesión</button>
+    </div>
+  </div>
+    <div class="derecha">
+      <div class="bienvenida">
+        <div class="p-2 bd-highlight" id="Logo-container">
+          <img class="logoF" src="assets/img/rincjujuy.png">
+        </div>
+      </div>    
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.fichaContainer{
+    display: flex; 
+    width: 800px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.2);
+    padding: 20px;
+} 
+
+.imagen{
+    width: 250px;
+    height: 250px;
+    border-right: 1px solid #0000;
+    padding: 20px; 
+}
+
+/* .card-body{
+} */
+
+.container {
+    align-items: center;
+    justify-content: center;
+    height: 30vh; 
+    padding: 0 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media print {
+    .no-imprimir {
+      visibility: hidden;
+    }
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+
+    /* @media (max-width:640px){
+      .fichaContainer {
+        display: block;
+      }
+  } */

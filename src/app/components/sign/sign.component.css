@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+canvas
+{
+    border: 1px solid rgb(0, 0, 0)
+}
+.boton{
+    color: white;
+    background-color: rgb(9, 28, 73);
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.tarjeta{
+    margin: auto; 
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 460px;
+    min-width: 200px;
+    height: auto;
+    padding: 1rem;
+    background-color: white;
+    font-size: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#Logo-container {
+    width: 90%;
+    max-width: 460px;
+    min-width: 200px;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: white;
+    /* background-color: #ffffffd4; */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+  }
+  
+  .logoF {
+    width: 100%;
+    max-width: 460px;
+    min-width: 200px;
+    height: auto;
+    padding-right: 6px;
+  }
+
+.fondo{
+    background-color: rgb(9, 28, 73); 
+}
+
+.centrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature-container {
+    border-radius: 15px; 
+    background-color: aliceblue;
+    border-color: rgb(9, 28, 73) ;
+}

@@ -1,0 +1,104 @@
+ <!-- <div class="card">
+    <div class="esencial">
+        <b>Martinez Laura, 444.444.444</b>
+    </div>
+<div class="fila">
+    <img class="mx-2" src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/2AYDKWFWUBG7VNZ24CJVPHHOWI.jpg" width="250" alt="">
+    <div class="fechas ">
+        <p><b class="mx-1">Llegada: </b>  25/02 <br> <b class="mx-1">Salida: </b> 2/03</p>
+        <p> <b class="mx-1"> telefono:</b>  +54 9 3885219555</p>
+   <p><b class="mx-1"> email:</b>   blablabla@gmail.com</p>
+        <p> Argentina, Jujuy, guatemala 547</p>
+    </div> 
+    
+    
+</div>
+
+
+<div class="notas">
+    <b>Notas:</b> <br>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse atque delectus ex totam, inventore veritatis eius similique fugiat nulla reiciendis tempora ad dicta corrupti, nemo minima quidem fugit dolorum autem!
+</div>
+
+<div class="datos my-2"> 
+ Llega en auto, Limpieza cuando se solicite
+</div> 
+    <pre>{{pData | json}}</pre> 
+    <a class="btn btn-secondary btn-sm btn-sig" href="/sign" role="button">Firmar</a>
+</div> -->
+
+
+<div class="card">
+    <h5 class="card-header">{{pData.titular.apellido}}, {{pData.titular.nombre}}</h5>
+    <div class="card-body">
+        <!-- <div class="card-horizontal">
+            <div class="img-square-wrapper">
+                <img class=""
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Dni_tarjeta_A.jpg/2560px-Dni_tarjeta_A.jpg"
+                    width="300" height="180" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Datos de contacto</h4>
+                <p>Telefono: {{pData.Titular.Telefono}}</p>
+                <p>Email: {{pData.Titular.Email}}</p>
+                <h4 class="card-title">Datos extra</h4>
+                <p>Notas: {{pData.Titular.Notas}}</p>
+                <p>Frecuencia de Limpieza: {{pData.FrecuenciaLimpieza}}</p>
+            </div>
+        </div> -->
+
+        <div class="row content">
+            <div class="col">
+                <img class="dni" onclick="javascript:this.width=450;this.height=338" ondblclick="javascript:this.width=250;this.height=160" src="{{pData.titular.documentacion}}" width="250"/>
+                <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Dni_tarjeta_A.jpg/2560px-Dni_tarjeta_A.jpg"
+                    width="250" height="160" alt="Card image cap"> -->
+            </div>
+            <div class="col">
+                <p>Contacto</p>
+                <hr class="separador"/>
+                <h5>Telefono: {{pData.titular.telefono}}</h5>
+                <h5>Email: {{pData.titular.email}}</h5>
+                <p>Fechas</p>
+                <hr class="separador"/>
+                <h5>Entrada: {{pData.fechaLlegada | date: 'dd/MM/yyyy' }}</h5>
+                <h5>Salida: {{pData.fechaSalida | date: 'dd/MM/yyyy' }}</h5>
+            </div>
+        </div>
+        <h5 class="card-text">
+            Notas: {{pData.notas}} <br>
+            Frecuencia de Limpieza: {{pData.frecuenciaLimpieza}}
+        </h5>
+        <p>Acompañantes</p>
+        <hr class="separador"/>
+        <h5 *ngIf="pData.nroacompanantes > 0">Cantidad de personas: {{pData.nroacompanantes}}</h5>
+        <h5 *ngIf="pData.nroacompanantes == 0">No se registraron acompañantes</h5>
+
+                <div class="accordion accordion-flush" *ngIf="pData.nroacompanantes > 0">
+                    <div class="accordion-item">
+                      <p class="accordion-header">
+                        <button class="accordion-button collapsed" id="acordion" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                          Información Acompañantes
+                        </button>
+                    </p>
+                      <div *ngFor="let a of acomp" id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <h5>Nombre: {{a.apellido}}, {{a.nombre}}</h5>
+                            <h5>DNI: {{a.documento}}</h5>
+                            <hr style="max-width: 95%;">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+          <br>
+          <p>Firma del Titular</p>
+          <hr class="separador"/>
+          <div class="firma">
+            <img src="{{pData.firma}}" width="250"/>
+          </div>
+          
+    </div>
+    <div class="d-flex justify-content-center mb-3" *ngIf="!pData.firma">
+        <button type="button" class="btn btn-secondary btn-sm btn-sig" (click)="firmarReserva(pData)" role="button">Firmar</button>
+    </div>
+</div>

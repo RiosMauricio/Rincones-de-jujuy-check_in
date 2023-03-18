@@ -1,0 +1,30 @@
+h3 {
+    font-size: 39px;
+    color: black;
+    text-align: left;
+    padding: auto;
+}
+
+.justify-content-center{
+    margin-top: 20px;
+}
+
+.logoF {
+    width: 100%;
+    max-width: 340px;
+    min-width: 200px;
+    height: auto;
+    padding-right: 20px;
+  }
+
+#Logo-container {
+    width: 90%;
+    max-width: 340px;
+    min-width: 200px;
+    height: auto;
+    margin: 10px auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }

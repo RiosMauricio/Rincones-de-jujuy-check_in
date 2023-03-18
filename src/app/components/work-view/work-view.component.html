@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container-fluid" id="Form-container" id="mainCointainer">
+  <div class="container-fluid overflow-hidden">
+    <div class="d-flex flex-column bd-highlight mb-3">
+
+      <div class="p-2 bd-highlight" id="Logo-container">
+        <img class="logoF" src="assets/img/rincjujuy.png">
+      </div>
+      <br>
+      <!-- <div class="d-flex justify-content-center">
+        <h3 class="my-2">Check In realizados</h3>
+      </div> -->
+    </div>
+    <app-datatable (eventData)="tablaSeleccion($event)"></app-datatable>
+  </div>
+
+</div>
